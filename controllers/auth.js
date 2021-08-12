@@ -7,10 +7,10 @@ export const register = async (req, res) => {
     const { name, email, password } = req.body
     //vaidation
     if(!name) return res.status(400).send('Name is required')
-    if(!password || password.length < 6){
+    if(!password || password.length < 4){
       return res
         .status(400)
-        .send("Password is required and should be 6 car long")
+        .send("Password is required and should be 4 car long")
     }
     let userExist = await User.findOne({email}).exec();
     if (userExist) return res.status(400).send('Email is taken')
