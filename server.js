@@ -22,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+
 // this is a customized middleware
 app.use((req, res, next) => {
   console.log("This is my own middleware...");
